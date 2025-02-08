@@ -1,0 +1,81 @@
+/*#fcecdf, #ee6a43, black*/
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #fff7f0;
+    height: 1000px;
+    padding-top: 3px;
+}
+.conteiner {
+    top: 42px;
+    width: 100%;
+    background-color: #fc8c2a;
+    height: 470px;
+    position: absolute;
+}
+.text{
+    padding-left: 40px;
+    padding-right: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+}
+.textFood{
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+    padding-right: 300px;
+    padding-left: 80px;
+    font-weight: bold;
+    font-size: 24px;
+}
+.ikonka{
+    left: 30px;
+    position: absolute;
+}
+.img1{
+    position: absolute;
+    left: 5px;
+    top: 40px;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+}
+.img2{
+    position: absolute;
+    top: 220px;
+    left: 420px;
+    transform:rotate(30deg);
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+}
+.img3{
+    position: absolute;
+    top: 325px;
+    left: 330px;
+    transform:rotate(-38deg);
+    filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, 0.5));
+    filter: blur(1.5px);
+}
+.img4{
+    position: absolute;
+    top: 120px;
+    left: 410px;
+    transform:rotate(-30deg);
+    filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, 0.5));
+    filter: blur(1.5px);
+}
+.img5{
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    transform:rotate(-30deg);
+    filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, 0.5));
+    filter: blur(1.5px);
+}
+.textFood1{
+    position: absolute;
+    left: 700px;
+    top: 80px;
+    text-align: center;
+}
+.Food{
+    color: #FF8A00;
+    -webkit-text-stroke: 1.5px black;
+    
+}

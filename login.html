@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+  <script src="strona.js" defer></script>
+</head>
+<body>
+
+  <div class="login">
+    <br>
+    <div class="box">
+      <h2><label>Login</label></h2>
+      <input type="text" id="username" placeholder="Email" name="username" oninput="checkEmail()"/>
+      <h4 style="display: inline;">
+        <input type="password" id="pass" placeholder="Password" name="password" minlength="8" maxlength="8" required oninput="validateForm()"/>
+      </h4>
+      <div class="check">
+        <input type="checkbox" id="check" onclick="togglePasswordVisibility()"> 
+        <label style="font-size: 13px;">Показать пароль</label>
+      </div>
+      <input type="button" class="button" value="Sign In" onclick="showCheckmark()" id="submitButton" disabled>
+  
+      <input class="register" id="register" value="Register" name="register" onclick="checkReg()">
+    </div>
+  </div>
+  
+    <input type="button" class="buttonAdmin" value="Admin" onclick="showAdmin()" id="buttonAdmin">
+    <div class="cursor"></div>
+
+
+  <script>
+    function checkEmail() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('pass').value;
+      var button = document.getElementById('submitButton');
+
+      // Получение списка пользователей из localStorage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Проверка, существует ли введенный пользователь и пароль
+      var userExists = users.some(user => user.username === username && user.password === password);
+
+      // Активируем кнопку, если пользователь найден
+      button.disabled = !userExists;
+    }
+
+    function validateForm() {
+      checkEmail();  // Проверка email и пароля при каждом изменении
+    }
+
+    function showCheckmark() {
+      window.location.href = "strona.html";
+    }
+
+    function checkReg() {
+      window.location.href = "register.html"; // Переход на страницу регистрации
+    }
+
+    function togglePasswordVisibility() {
+      var passwordField = document.getElementById('pass');
+      passwordField.type = passwordField.type === "password" ? "text" : "password";
+    }
+
+    function showAdmin() {
+      window.location.href = "admin.html";
+    }
+  </script>
+
+</body>
+</html>

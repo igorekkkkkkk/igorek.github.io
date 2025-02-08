@@ -1,0 +1,197 @@
+/* styles.css */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+/* Общие стили для body */
+body {
+    height: 100vh;
+    background-size: 300px 300px;
+    background-image: url(https://img.freepik.com/premium-vector/seamless-pattern-with-gray-white-geese_429461-3.jpg);
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    display: flex;
+    
+}
+
+
+
+.login{
+    height: 42vh; 
+    width: 52vh;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border: 3px solid #000;
+    overflow: hidden;
+    box-shadow: 12px 12px  black;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+    transform: rotate(2deg); 
+    position: absolute;
+    border-radius: 15px;
+     
+}
+.login:hover{
+    transform: rotate(0deg); 
+}
+.login:active{
+    transform: scale(0.92);
+    animation: moveRightLeft 0.1s ease forwards;
+}
+
+@keyframes moveRightLeft {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(3px); /* Движение вправо */
+    }
+    100% {
+      transform: translateX(-3px); /* Возврат в исходное положение */
+    }
+  }
+
+.login .box{
+    position: relative;
+}
+
+.login .box input{
+    width: 100%;
+}
+
+.login .box .check input{
+    width: 3vh;
+}
+
+/* Скрытый значок по умолчанию */
+#checkmark {
+    display: none;
+    font-size: 5px;
+    color: rgb(136, 0, 0);
+}
+
+.button:enabled{
+    background-color: #000000;
+    cursor: default;
+    padding: 7px ;
+    border: #000;
+}
+/* Стили для отключенной кнопки */
+.button:disabled {
+    background-color: #000000;
+    cursor: not-allowed;
+    padding: 7px;
+    border: #000;
+}
+
+input[class="button"]{
+    color: white;
+    font-size: 12px;
+    z-index: 1;
+  
+    
+}
+input[id="pass"]{
+    border: 3px solid #000;
+    padding: 4px;
+}
+input[id="username"]{
+    padding: 4px;
+    border: 3px solid #000;
+}
+input[class="button"]:active{
+    background-color: rgb(18, 18, 18);
+    transform: scaleX(0.9);
+    transform: scaleY(0.94);
+    border: #000;
+    
+    
+}
+input[class="button"]:hover{
+    background-color: white;
+    border: 3px solid black;
+    color: black;
+    height: 30px;
+    
+}
+.register:hover{
+    background-color: white;
+    border: 4px solid black;
+    color: black;
+    
+}
+.register{
+    top: -38px;
+    left: 20vh;
+    display: inline-block;
+    width: 150px;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    transition: opacity;
+    transform: rotate(42deg);
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    height: 25px;
+    border: 4px solid black;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: default;
+    
+}
+.register:active{
+    transform: scaleX(0.8);
+    transform: scaleY(0.8);
+    transform: rotate(42deg);
+    user-select: none;
+
+}
+.checkmark:active{
+    color: #000;
+    }
+
+span[id="savedUsername"]{
+    top: 0;         
+    left: 0;
+    position: fixed;
+    
+
+}
+span[id="savedPassword"]{
+    top: 1;         
+    left: 0;
+    position: fixed;
+   
+
+}
+#savedUsername, #savedPassword{
+    display: none;
+}
+input[class='buttonAdmin']{
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 16px;
+}
+input[class="buttonAdmin"]:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+    border: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.8);
+}
+input[class="buttonAdmin"]:active{
+    transform: scale(0.9);
+}
+
+

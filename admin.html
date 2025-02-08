@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Data</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Users</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th> <!-- Добавлен столбец для кнопки -->
+      </tr>
+    </thead>
+    <tbody id="userTableBody">
+      <!-- User data will be populated here -->
+    </tbody>
+  </table>
+
+  <script>
+    function displayData() {
+      // Получение списка пользователей из localStorage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Получение элемента таблицы для заполнения данными
+      var tableBody = document.getElementById("userTableBody");
+
+      // Очистка таблицы перед заполнением
+      tableBody.innerHTML = "";
+
+      // Добавление каждой строки для каждого пользователя
+      users.forEach(function(user, index) {
+        var row = document.createElement("tr");
+        
+        // Ячейка с email
+        var emailCell = document.createElement("td");
+        emailCell.textContent = user.username;
+        row.appendChild(emailCell);
+        
+        // Ячейка с паролем
+        var passwordCell = document.createElement("td");
+        passwordCell.textContent = user.password;
+        row.appendChild(passwordCell);
+
+        // Ячейка с кнопкой
+        var actionCell = document.createElement("td");
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function() {
+          deleteUser(index); // Вызов функции удаления пользователя по индексу
+        };
+        actionCell.appendChild(deleteButton);
+        row.appendChild(actionCell);
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    function deleteUser(index) {
+      // Получение списка пользователей из localStorage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Удаление пользователя по индексу
+      users.splice(index, 1);
+
+      // Сохранение обновленного списка в localStorage
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // Обновление таблицы после удаления
+      displayData();
+    }
+
+    document.addEventListener("DOMContentLoaded", displayData);
+  </script>
+</body>
+</html>
